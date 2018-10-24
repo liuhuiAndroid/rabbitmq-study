@@ -40,6 +40,5 @@ public class Packaged {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
 }

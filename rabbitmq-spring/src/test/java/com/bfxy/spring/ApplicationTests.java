@@ -99,7 +99,7 @@ public class ApplicationTests {
 		messageProperties.setContentType("text/plain");
 		Message message = new Message("mq 消息1234".getBytes(), messageProperties);
 		
-		rabbitTemplate.send("topic001", "spring.abc", message);
+//		rabbitTemplate.send("topic001", "spring.abc", message);
 		
 		rabbitTemplate.convertAndSend("topic001", "spring.amqp", "hello object message send!");
 		rabbitTemplate.convertAndSend("topic002", "rabbit.abc", "hello object message send!");
@@ -111,11 +111,11 @@ public class ApplicationTests {
 		MessageProperties messageProperties = new MessageProperties();
 		messageProperties.setContentType("text/plain");
 		Message message = new Message("mq 消息1234".getBytes(), messageProperties);
-		
+		Message message2 = new Message("mq 消息12342".getBytes(), messageProperties);
+
 		rabbitTemplate.send("topic001", "spring.abc", message);
-		rabbitTemplate.send("topic002", "rabbit.abc", message);
+		rabbitTemplate.send("topic002", "rabbit.abc", message2);
 	}
-	
 	
 	@Test
 	public void testSendJsonMessage() throws Exception {
