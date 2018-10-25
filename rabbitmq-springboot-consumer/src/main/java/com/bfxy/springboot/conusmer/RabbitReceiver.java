@@ -18,7 +18,6 @@ import com.rabbitmq.client.Channel;
 @Component
 public class RabbitReceiver {
 
-	
 	@RabbitListener(bindings = @QueueBinding(
 			value = @Queue(value = "queue-1", 
 			durable="true"),

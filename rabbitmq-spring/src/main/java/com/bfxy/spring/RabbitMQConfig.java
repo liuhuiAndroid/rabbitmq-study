@@ -152,14 +152,14 @@ public class RabbitMQConfig {
     	/**
     	 * 2 适配器方式: 我们的队列名称 和 方法名称 也可以进行一一的匹配
     	 *
-		 *
+		 **/
     	MessageListenerAdapter adapter = new MessageListenerAdapter(new MessageDelegate());
     	adapter.setMessageConverter(new TextMessageConverter());
     	Map<String, String> queueOrTagToMethodName = new HashMap<>();
     	queueOrTagToMethodName.put("queue002", "method2");
     	queueOrTagToMethodName.put("queue001", "method1");
     	adapter.setQueueOrTagToMethodName(queueOrTagToMethodName);
-    	container.setMessageListener(adapter);*/
+    	container.setMessageListener(adapter);
 
         // 1.1 支持json格式的转换器
         /**
@@ -207,32 +207,32 @@ public class RabbitMQConfig {
         
         //1.4 ext convert
 
-		MessageListenerAdapter adapter = new MessageListenerAdapter(new MessageDelegate());
-		adapter.setDefaultListenerMethod("consumeMessage");
-
-		//全局的转换器:
-		ContentTypeDelegatingMessageConverter convert = new ContentTypeDelegatingMessageConverter();
-
-		TextMessageConverter textConvert = new TextMessageConverter();
-		convert.addDelegate("text", textConvert);
-		convert.addDelegate("html/text", textConvert);
-		convert.addDelegate("xml/text", textConvert);
-		convert.addDelegate("text/plain", textConvert);
-
-		Jackson2JsonMessageConverter jsonConvert = new Jackson2JsonMessageConverter();
-		convert.addDelegate("json", jsonConvert);
-		convert.addDelegate("application/json", jsonConvert);
-
-		ImageMessageConverter imageConverter = new ImageMessageConverter();
-		convert.addDelegate("image/png", imageConverter);
-		convert.addDelegate("image", imageConverter);
-
-		PDFMessageConverter pdfConverter = new PDFMessageConverter();
-		convert.addDelegate("application/pdf", pdfConverter);
-
-
-		adapter.setMessageConverter(convert);
-		container.setMessageListener(adapter);
+//		MessageListenerAdapter adapter = new MessageListenerAdapter(new MessageDelegate());
+//		adapter.setDefaultListenerMethod("consumeMessage");
+//
+//		//全局的转换器:
+//		ContentTypeDelegatingMessageConverter convert = new ContentTypeDelegatingMessageConverter();
+//
+//		TextMessageConverter textConvert = new TextMessageConverter();
+//		convert.addDelegate("text", textConvert);
+//		convert.addDelegate("html/text", textConvert);
+//		convert.addDelegate("xml/text", textConvert);
+//		convert.addDelegate("text/plain", textConvert);
+//
+//		Jackson2JsonMessageConverter jsonConvert = new Jackson2JsonMessageConverter();
+//		convert.addDelegate("json", jsonConvert);
+//		convert.addDelegate("application/json", jsonConvert);
+//
+//		ImageMessageConverter imageConverter = new ImageMessageConverter();
+//		convert.addDelegate("image/png", imageConverter);
+//		convert.addDelegate("image", imageConverter);
+//
+//		PDFMessageConverter pdfConverter = new PDFMessageConverter();
+//		convert.addDelegate("application/pdf", pdfConverter);
+//
+//
+//		adapter.setMessageConverter(convert);
+//		container.setMessageListener(adapter);
 		
     	return container;
     	

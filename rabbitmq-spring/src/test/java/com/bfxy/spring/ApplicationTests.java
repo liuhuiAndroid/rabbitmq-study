@@ -115,6 +115,7 @@ public class ApplicationTests {
 
 		rabbitTemplate.send("topic002", "rabbit.abc", message2);
 		rabbitTemplate.send("topic001", "spring.abc", message);
+		Thread.sleep(2000);
 	}
 	
 	@Test

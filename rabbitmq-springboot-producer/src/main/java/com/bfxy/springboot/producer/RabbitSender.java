@@ -50,8 +50,8 @@ public class RabbitSender {
 		rabbitTemplate.setConfirmCallback(confirmCallback);
 		rabbitTemplate.setReturnCallback(returnCallback);
 		//id + 时间戳 全局唯一 
-		CorrelationData correlationData = new CorrelationData("1234567890");
-		rabbitTemplate.convertAndSend("exchange-1", "springboot.abc", msg, correlationData);
+		CorrelationData correlationData = new CorrelationData("12345678920");
+		rabbitTemplate.convertAndSend("exchange-1", "springboot.ab22c", msg, correlationData);
 	}
 	
 	//发送消息方法调用: 构建自定义对象消息
