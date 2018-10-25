@@ -113,8 +113,8 @@ public class ApplicationTests {
 		Message message = new Message("mq 消息1234".getBytes(), messageProperties);
 		Message message2 = new Message("mq 消息12342".getBytes(), messageProperties);
 
-		rabbitTemplate.send("topic001", "spring.abc", message);
 		rabbitTemplate.send("topic002", "rabbit.abc", message2);
+		rabbitTemplate.send("topic001", "spring.abc", message);
 	}
 	
 	@Test
